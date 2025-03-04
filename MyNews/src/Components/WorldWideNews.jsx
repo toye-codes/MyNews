@@ -40,7 +40,7 @@ const WorldWideNews = () => {
 
   return (
     <motion.section
-      className="max-w-7xl mx-auto px-5 py-8 bg-blue-500 text-white rounded-lg shadow-lg"
+      className="max-w-7xl mx-auto px-5 py-8 bg-gray-300 text-white rounded-lg shadow-lg"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}>
