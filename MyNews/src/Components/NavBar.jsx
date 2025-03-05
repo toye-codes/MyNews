@@ -1,10 +1,10 @@
 import navbar from "../assets/Images/navbar.png";
 import logo from "../assets/Images/logo.png";
-import { Sun, Moon, Search, SidebarCloseIcon, X } from "lucide-react";
+import { Sun, Moon, Search, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 
-// Use context Api to import and change the states for dark modes.
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,45 +12,42 @@ const NavBar = () => {
   const [search, setSearch] = useState("");
 
   const handleOnChange = (e) => {
-    setSearch(e.target.value)
-    console.log(setSearch)
-  }
+    setSearch(e.target.value);
+    console.log(setSearch);
+  };
 
- const handleSearch = () => {
-   if (search.trim() !== "") {
-     console.log(`Searching for: ${search}`); // Replace with actual search logic
-   } else {
-     console.log("Search input is empty.");
-   }
- };
+  const handleSearch = () => {
+    if (search.trim() !== "") {
+      console.log(`Searching for: ${search}`); // Replace with actual search logic
+    } else {
+      console.log("Search input is empty.");
+    }
+  };
 
- useEffect(() => {
-   console.log(`Search updated: ${search}`); // Logs whenever `search` changes. Must remove this feature when I start workin in the functionality
- }, [search]);
-
+  useEffect(() => {
+    console.log(`Search updated: ${search}`); // Logs whenever `search` changes. Must remove this feature when working on the functionality
+  }, [search]);
 
   const handleDarkMode = () => {
     setDarkMode((prev) => {
       const newMode = !prev;
-
       if (newMode) {
         document.documentElement.classList.add("dark"); // Enable dark mode
       } else {
         document.documentElement.classList.remove("dark"); // Disable dark mode
       }
-
       return newMode; // Update state
     });
   };
 
   const handleToggle = () => setIsOpen(!isOpen);
 
+  // Updated menuItems array with links
   const menuItems = [
-    "Home",
-    "Marketing Insights",
-    "Interviews with",
-    "Marketing Rants",
-    "Create New Post",
+    { label: "Home", link: "/" },
+    { label: "Marketings", link: "/marketing" },
+    { label: "Entertainment", link: "/entertainment" },
+    { label: "Sports", link: "/sports" }
   ];
 
   return (
@@ -62,9 +59,9 @@ const NavBar = () => {
       <nav className="hidden md:flex items-center gap-5 font-semibold text-lg">
         {menuItems.map((item) => (
           <li
-            key={item}
+            key={item.label}
             className="list-none hover:underline hover:text-blue-500 transition-all duration-150 cursor-pointer dark:hover:text-blue-300">
-            {item}
+            {item.link ? <Link to={item.link}>{item.label}</Link> : item.label}
           </li>
         ))}
       </nav>
@@ -82,7 +79,7 @@ const NavBar = () => {
             <input
               type="text"
               placeholder="...search recent blog post"
-              className=" hidden md:inline border-2 rounded-xl text-center dark:text-black"
+              className="hidden md:inline border-2 rounded-xl text-center dark:text-black"
               value={search}
               onChange={handleOnChange}
             />
@@ -91,8 +88,7 @@ const NavBar = () => {
           <button
             type="button"
             className="hidden md:flex items-center gap-2 bg-white rounded-xl px-3 dark:text-black"
-            onClick={handleSearch}
-          >
+            onClick={handleSearch}>
             <Search size={20} />
             <span className="font-semibold">Search</span>
           </button>
@@ -120,11 +116,15 @@ const NavBar = () => {
           <ul className="flex flex-col gap-4">
             {menuItems.map((item) => (
               <li
-                key={item}
+                key={item.label}
                 className="text-lg font-medium hover:bg-blue-500 hover:text-white hover:font-bold py-2 px-3 rounded-lg transition-all duration-200 cursor-pointer dark:hover:bg-blue-300 dark:hover:text-black"
                 onClick={handleToggle} // Close menu on item click
               >
-                {item}
+                {item.link ? (
+                  <Link to={item.link}>{item.label}</Link>
+                ) : (
+                  item.label
+                )}
               </li>
             ))}
           </ul>
