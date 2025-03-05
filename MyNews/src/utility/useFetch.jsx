@@ -7,7 +7,6 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
 
-  console.log("API Key:", import.meta.env.VITE_API_KEY_2);
 
   useEffect(() => {
     if (!url) return; // Prevent fetching if URL is not provided
