@@ -7,37 +7,42 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!url) return; // Prevent fetching if no URL is provided
+    if (!url) return; // Prevent unnecessary fetching
 
     const storedNews = localStorage.getItem("cachedNews");
-    if (storedNews) {
+    const cacheTime = localStorage.getItem("cacheTime");
+
+    // Clear cache after 30 minutes
+    const isCacheExpired = cacheTime && (Date.now() - cacheTime > 30 * 60 * 1000);
+
+    if (storedNews && !isCacheExpired) {
       setData(JSON.parse(storedNews));
       setLoading(false);
-      return
+      return;
     }
-
-    
-
 
     const fetchData = async () => {
       setLoading(true);
       setError(null);
+      const source = axios.CancelToken.source(); // For cleanup
 
       try {
         let finalUrl = url;
 
-        // Append API key if the request is for Mediastack
-        if (url.includes("mediastack.com")) {
-          const apiKey = import.meta.env.VITE_API_KEY_2;
-          finalUrl = `${url}&access_key=${apiKey}`;
+        // Append API key if it's a GNews request
+        if (url.includes("gnews.io")) {
+          const apiKey = import.meta.env.VITE_GNEWS_API_KEY;
+          finalUrl = `${url}&apikey=${apiKey}`;
         }
 
-        const response = await axios.get(finalUrl);
-        const fetchedData = response.data.data || [];
+        const response = await axios.get(finalUrl, { cancelToken: source.token });
+        const fetchedData = response.data.articles || [];
 
         setData(fetchedData);
-        localStorage.setItem("cachedNews", JSON.stringify(fetchedData)); // Store in localStorage
+        localStorage.setItem("cachedNews", JSON.stringify(fetchedData));
+        localStorage.setItem("cacheTime", Date.now()); // Store timestamp
       } catch (err) {
+        if (axios.isCancel(err)) return; // Ignore cancelled requests
         setError(err.message || "Failed to fetch data");
       } finally {
         setLoading(false);
@@ -45,6 +50,8 @@ const useFetch = (url) => {
     };
 
     fetchData();
+
+    return () => source.cancel("Request canceled on unmount"); // Cleanup on unmount
   }, [url]);
 
   return { data, loading, error };

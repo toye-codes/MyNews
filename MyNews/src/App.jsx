@@ -11,22 +11,22 @@ import { useRef } from "react";
 export default function App() {
   return (
     <motion.section
-      className="bg-white dark:bg-gray-900 bg-[length:400%_400%] animate-gradient min-h-screen flex flex-col justify-between shadow-lg"
+      className="bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-between shadow-lg"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}>
       {/* Header */}
       <motion.header
-        className="sticky top-0 z-50 bg-opacity-90 backdrop-blur-lg shadow-md"
+        className="sticky top-0 z-50 bg-opacity-90 backdrop-blur-md shadow-lg"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}>
+        transition={{ duration: 0.8, ease: "easeOut" }}>
         <NavBar />
         <Slider />
       </motion.header>
 
-      {/* Main Content with Scroll Animations */}
-      <motion.main className="p-4 space-y-6 flex-grow">
+      {/* Main Content */}
+      <motion.main className="p-6 space-y-10 flex-grow">
         <FadeInSection>
           <MainArticle />
         </FadeInSection>
@@ -40,23 +40,20 @@ export default function App() {
 
       {/* Footer */}
       <motion.footer
-        className="py-6 bg-gray-100 dark:bg-gray-900 rounded-t-lg shadow-md"
+        className="py-6 bg-gray-200 dark:bg-gray-800 rounded-t-lg shadow-md"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}>
+        transition={{ duration: 0.8, ease: "easeOut" }}>
         <Footer />
       </motion.footer>
     </motion.section>
   );
 }
 
-/* Custom Component for Scroll Animations */
+/* Scroll Animation Wrapper */
 function FadeInSection({ children }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    triggerOnce: true,
-    margin: "0px 0px -50px 0px",
-  });
+  const isInView = useInView(ref, { triggerOnce: true, margin: "-50px 0px" });
 
   return (
     <motion.div
@@ -64,7 +61,7 @@ function FadeInSection({ children }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out">
+      className="shadow-lg hover:scale-[1.02] transition-transform duration-300 ease-in-out">
       {children}
     </motion.div>
   );
