@@ -13,8 +13,11 @@ const useFetch = (url) => {
     if (storedNews) {
       setData(JSON.parse(storedNews));
       setLoading(false);
-      return;
+      return
     }
+
+    
+
 
     const fetchData = async () => {
       setLoading(true);
