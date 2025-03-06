@@ -1,0 +1,112 @@
+{
+  "articles": [
+    // Marketing Articles (15) - Already Added
+
+    // Entertainment Articles (15)
+    {
+      "title": "The Most Anticipated Movies of 2025",
+      "author": "Jessica Miller",
+      "image": "https://via.placeholder.com/300",
+      "description": "A roundup of the biggest blockbuster films set to release in 2025.",
+      "content": "Movie lovers have a lot to look forward to in 2025, with major sequels, original sci-fi thrillers, and animated masterpieces hitting theaters. Some of the most anticipated titles include..."
+    },
+    {
+      "title": "How Streaming Platforms Are Changing Hollywood",
+      "author": "Michael Ross",
+      "image": "https://via.placeholder.com/300",
+      "description": "The rise of streaming services is reshaping the entertainment industry in unprecedented ways.",
+      "content": "With traditional movie theaters struggling, streaming giants like Netflix, Disney+, and HBO Max are setting new standards for how content is consumed..."
+    },
+    {
+      "title": "The Evolution of Music Festivals in the Digital Age",
+      "author": "Sophia Turner",
+      "image": "https://via.placeholder.com/300",
+      "description": "How technology and social media are transforming live music experiences.",
+      "content": "Music festivals have embraced digital innovation, incorporating live streaming, virtual reality experiences, and interactive apps to enhance fan engagement..."
+    },
+    {
+      "title": "The Rise of AI in Film Production",
+      "author": "Chris Adams",
+      "image": "https://via.placeholder.com/300",
+      "description": "How artificial intelligence is being used to revolutionize movie-making.",
+      "content": "From CGI to scriptwriting, AI technology is changing how films are produced, allowing for faster and more cost-effective filmmaking..."
+    },
+    {
+      "title": "The Top 10 TV Shows Everyone is Talking About",
+      "author": "Emma Johnson",
+      "image": "https://via.placeholder.com/300",
+      "description": "A list of the most talked-about TV series dominating pop culture.",
+      "content": "From thrilling dramas to hilarious comedies, these TV shows have captured global audiences and are setting new trends in storytelling..."
+    },
+    {
+      "title": "Celebrity Brand Endorsements: Do They Still Work?",
+      "author": "David Lee",
+      "image": "https://via.placeholder.com/300",
+      "description": "A look at how celebrity endorsements influence consumer behavior today.",
+      "content": "While some brands thrive on celebrity endorsements, others have found more success partnering with influencers and content creators..."
+    },
+    {
+      "title": "The Impact of K-Pop on Global Music Trends",
+      "author": "Rachel Park",
+      "image": "https://via.placeholder.com/300",
+      "description": "How K-Pop has taken over the global music industry and what’s next for the genre.",
+      "content": "With its high-energy performances and dedicated fanbase, K-Pop continues to dominate global music charts and influence international pop culture..."
+    },
+    {
+      "title": "Hollywood’s Biggest Box Office Surprises",
+      "author": "Lucas Carter",
+      "image": "https://via.placeholder.com/300",
+      "description": "A look at the unexpected movie hits that shattered box office predictions.",
+      "content": "Some movies defy expectations and become blockbuster hits against all odds. Here are some of the biggest surprises in recent Hollywood history..."
+    },
+    {
+      "title": "The Future of Virtual Concerts and Digital Performances",
+      "author": "Natalie White",
+      "image": "https://via.placeholder.com/300",
+      "description": "How artists are embracing technology to bring live performances to audiences worldwide.",
+      "content": "With advancements in VR and streaming platforms, virtual concerts are becoming an increasingly popular way for artists to connect with their fans..."
+    },
+    {
+      "title": "The Influence of Video Games on Modern Storytelling",
+      "author": "Ethan Brown",
+      "image": "https://via.placeholder.com/300",
+      "description": "How the gaming industry is shaping the way stories are told in entertainment.",
+      "content": "Narrative-driven video games have become a significant influence on movies and TV shows, leading to an evolution in storytelling techniques..."
+    },
+    {
+      "title": "The Most Iconic Red Carpet Looks of the Decade",
+      "author": "Olivia Harris",
+      "image": "https://via.placeholder.com/300",
+      "description": "A look at the most unforgettable fashion moments from Hollywood’s biggest events.",
+      "content": "From glamorous gowns to bold fashion statements, these red carpet looks have set new trends in the fashion industry..."
+    },
+    {
+      "title": "Why Nostalgia is Dominating Pop Culture",
+      "author": "Mark Daniels",
+      "image": "https://via.placeholder.com/300",
+      "description": "How reboots, sequels, and classic remakes are driving the entertainment industry.",
+      "content": "Nostalgia is a powerful force in entertainment, with audiences craving familiar stories and beloved characters from the past..."
+    },
+    {
+      "title": "The Top 5 Stand-Up Comedians to Watch This Year",
+      "author": "Megan Collins",
+      "image": "https://via.placeholder.com/300",
+      "description": "A spotlight on the rising stars in stand-up comedy that are making waves.",
+      "content": "Comedy lovers should keep an eye on these talented comedians who are redefining the art of stand-up with fresh and hilarious perspectives..."
+    },
+    {
+      "title": "The Growth of Independent Films in the Streaming Era",
+      "author": "Ryan Scott",
+      "image": "https://via.placeholder.com/300",
+      "description": "Why indie films are gaining more attention and success in the digital age.",
+      "content": "Streaming platforms have given independent filmmakers new opportunities to reach audiences worldwide, leading to a golden era for indie cinema..."
+    },
+    {
+      "title": "The Role of TikTok in Shaping Music Trends",
+      "author": "Lily Anderson",
+      "image": "https://via.placeholder.com/300",
+      "description": "How TikTok is influencing the music industry and launching new artists to stardom.",
+      "content": "With viral dance challenges and song trends, TikTok has become one of the most powerful platforms for music discovery and promotion..."
+    }
+  ]
+}
