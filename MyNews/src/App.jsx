@@ -11,18 +11,20 @@ import { useRef } from "react";
 export default function App() {
   return (
     <motion.section
-      className="bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-between shadow-lg"
+      className=" container mx-auto bg-gray-100 dark:bg-gray-900 min-h-screen py-8 px-4  flex flex-col justify-between shadow-lg"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}>
       {/* Header */}
       <motion.header
-        className="sticky top-0 z-50 bg-opacity-90 backdrop-blur-md shadow-lg"
+        className="sticky top-0 z-50  shadow-lg"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}>
         <NavBar />
-        <Slider />
+        <div>
+          <Slider />
+        </div>
       </motion.header>
 
       {/* Main Content */}
