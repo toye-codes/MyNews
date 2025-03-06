@@ -36,19 +36,42 @@ const articleData = [
 
 const MainArticle = () => {
   return (
-    <section className="px-8 pt-6 mb-5">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="px-4 pt-6 mb-5">
+      <div className="flex flex-col md:grid md:grid-cols-3 gap-6">
         {articleData.map((article) => (
-          <ArticlesCard
+          <div
             key={article.id}
-            id={article.id}
-            img={article.img}
-            tag={article.tag}
-            title={article.title}
-            authorPicture={article.authorPicture}
-            authorName={article.authorName}
-            time={article.time}
-          />
+            className="border dark:border-gray-700 rounded-lg shadow-md p-5 bg-gray-200 dark:bg-gray-800">
+            <div className="flex flex-col md:flex-row">
+              {/* Image Section */}
+              <div className="w-full md:w-1/3 flex-shrink-0 bg-gray-300 dark:bg-gray-700 p-4 rounded-lg">
+                <img
+                  src={article.img}
+                  alt={article.title}
+                  className="w-full h-48 object-cover rounded"
+                />
+              </div>
+
+              {/* Vertical Separator (for md+) */}
+              <div className="hidden md:block w-[2px] bg-gray-400 dark:bg-gray-600 mx-4"></div>
+
+              {/* Content Section */}
+              <div className="md:w-2/3 bg-gray-300 dark:bg-gray-700 p-4 rounded-lg">
+                <h2 className="text-lg font-semibold dark:text-gray-100">
+                  {article.title}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {article.tag}
+                </p>
+
+                {/* Author & Read Time */}
+                <div className="mt-2 flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                  <p>By {article.authorName}</p>
+                  <span>{article.time}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </section>
