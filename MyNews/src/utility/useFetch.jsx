@@ -6,26 +6,34 @@ const useFetch = (url) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
-
   useEffect(() => {
-    if (!url) return; // Prevent fetching if URL is not provided
+    if (!url) return; // Prevent fetching if no URL is provided
 
-    setLoading(true);
-    setError(null);
+    const storedNews = localStorage.getItem("cachedNews");
+    if (storedNews) {
+      setData(JSON.parse(storedNews));
+      setLoading(false);
+      return;
+    }
 
     const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
         let finalUrl = url;
 
-        // Append API key if the request is for NewsAPI
-        if (url.includes("newsapi.org")) {
+        // Append API key if the request is for Mediastack
+        if (url.includes("mediastack.com")) {
           const apiKey = import.meta.env.VITE_API_KEY_2;
-          finalUrl = `${url}&apiKey=${apiKey}`;
+          finalUrl = `${url}&access_key=${apiKey}`;
         }
 
         const response = await axios.get(finalUrl);
-        setData(response.data.articles || response.data); // Handle cases where the data has `articles`
+        const fetchedData = response.data.data || [];
+
+        setData(fetchedData);
+        localStorage.setItem("cachedNews", JSON.stringify(fetchedData)); // Store in localStorage
       } catch (err) {
         setError(err.message || "Failed to fetch data");
       } finally {
